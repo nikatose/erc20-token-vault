@@ -13,13 +13,12 @@ contract ERC20TokenVaultTest {
 
     uint256 constant INITIAL_BALANCE = 1000 ether;
 
-    function setUp() public {
-        token = new MockERC20();
-        vault = new ERC20TokenVault(address(token));
+function setUp() public {
+    token = new MockERC20();
+    vault = new ERC20TokenVault(address(token));
 
-        token.mint(user, INITIAL_BALANCE);
-        token.mint(otherUser, INITIAL_BALANCE);
-    }
+    token.mint(address(this), INITIAL_BALANCE);
+}
 
     function testInitialState() public {
         require(
